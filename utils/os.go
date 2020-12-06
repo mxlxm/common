@@ -25,6 +25,10 @@ func ExecDir() string {
 	return strings.Join(splitstr[:len(splitstr)-1], "/")
 }
 
+func GetProgramName() string {
+	return os.Args[0]
+}
+
 func IsDirExist(path string) bool {
 	dir, err := os.Stat(path)
 	if err != nil {

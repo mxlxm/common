@@ -110,8 +110,10 @@ func InitLogConfig(c LogConfig) (l *LogConfig) {
 		for k, v := range c.InitialFields {
 			l.Fields = append(l.Fields, zap.Field(zap.Any(k, v)))
 		}
-		l.Options = append(l.Options, zap.Fields(l.Fields...))
+	} else {
+		l.Fields = append(l.Fields, zap.Field(zap.Any("app", GetProgramName())))
 	}
+	l.Options = append(l.Options, zap.Fields(l.Fields...))
 	return l
 }
 
