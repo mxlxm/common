@@ -4,6 +4,7 @@ import (
 	"net"
 	"os"
 	"os/exec"
+	"path"
 	"path/filepath"
 	"strings"
 )
@@ -26,7 +27,7 @@ func ExecDir() string {
 }
 
 func GetProgramName() string {
-	return os.Args[0]
+	return path.Base(os.Args[0])
 }
 
 func IsDirExist(path string) bool {
